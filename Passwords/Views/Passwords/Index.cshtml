@@ -1,0 +1,48 @@
+﻿@model List<PasswordModel>
+@{
+    ViewData["Title"] = "Lista de senhas";
+}
+
+<div class="text-center">
+
+
+    <div class="d-grip gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-asp-controller="Passwords" asp-action="Criar"> Cadastrar nova senha </a>
+    </div>
+    <br />
+
+    <h1 class="display-4">  Lista de Senhas</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Senha</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (PasswordModel cadastro in Model)
+                {
+                    <tr>
+                        <th scope="row">@cadastro.Id</th>
+                        <td>@cadastro.Nome</td>
+                        <td>@cadastro.Email</td>
+                        <td>@cadastro.Senha</td> 
+                        <td>
+                            <div class="btn-group">
+                                <a role="button" class="btn btn-success" asp-route-id="@cadastro.Id" asp-controller="Passwords" asp-action="Editar">Editar</a>
+                                <a role="button" class="btn btn-danger" asp-controller="Passwords" asp-action="ApagarConfirmacao">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</div>
