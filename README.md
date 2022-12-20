@@ -12,10 +12,10 @@ A finalidade deste projeto é desenvolver meus conhecimentos em C# criando um CR
 <!-- Features -->
 <h2> Funcionalidades: </h2>
 
-- [✅] CRUD
-- [ ] Login screen
-- [ ] Serch tool
-- [ ] Dark theme
+ [✅] CRUD <br>
+ [❌] Login screen <br>
+ [❌] Serch tool <br>
+ [❌] Dark theme  
 
 <!-- Tecnologias -->
 <h2> Tecnologias: <h2>
