@@ -12,5 +12,6 @@ namespace Passwords.Repositorio
         PasswordModel Adicionar(PasswordModel cadastro);
 
         PasswordModel Atualizar(PasswordModel cadastro);
+        bool Apagar(int id);
     }
 }

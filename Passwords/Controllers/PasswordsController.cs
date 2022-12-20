@@ -27,9 +27,17 @@ namespace Passwords.Controllers
            PasswordModel cadastro = _cadastroRepositorio.ListarPorId(id);
             return View(cadastro);
         }
-        public IActionResult ApagarConfirmacao()
+
+        public IActionResult Apagar(int id)
         {
-            return View();
+            _cadastroRepositorio.Apagar(id);
+            return RedirectToAction("index");
+
+        }
+        public IActionResult ApagarConfirmacao(int id)
+        {
+            PasswordModel cadastro = _cadastroRepositorio.ListarPorId(id);
+            return View(cadastro);
         }
 
         [HttpPost]
