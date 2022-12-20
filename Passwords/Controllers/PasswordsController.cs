@@ -22,9 +22,10 @@ namespace Passwords.Controllers
         {
             return View();
         }
-        public IActionResult Editar()
+        public IActionResult Editar(int id)
         {
-            return View();
+           PasswordModel cadastro = _cadastroRepositorio.ListarPorId(id);
+            return View(cadastro);
         }
         public IActionResult ApagarConfirmacao()
         {
@@ -37,6 +38,14 @@ namespace Passwords.Controllers
             _cadastroRepositorio.Adicionar(cadastro);
             return RedirectToAction("Index");
           
+        }
+
+        [HttpPost]
+        public IActionResult Alterar(PasswordModel cadastro)
+        {
+            _cadastroRepositorio.Atualizar(cadastro);
+            return RedirectToAction("Index");
+
         }
     }
 }

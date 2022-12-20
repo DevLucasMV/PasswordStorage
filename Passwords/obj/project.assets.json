@@ -6646,11 +6646,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Coding\\repos\\Passwords\\Passwords\\Passwords.csproj",
+      "projectUniqueName": "C:\\Users\\Pericles\\Documents\\GitHub\\PasswordStorage\\Passwords\\Passwords.csproj",
       "projectName": "Passwords",
-      "projectPath": "C:\\Coding\\repos\\Passwords\\Passwords\\Passwords.csproj",
+      "projectPath": "C:\\Users\\Pericles\\Documents\\GitHub\\PasswordStorage\\Passwords\\Passwords.csproj",
       "packagesPath": "C:\\Users\\Pericles\\.nuget\\packages\\",
-      "outputPath": "C:\\Coding\\repos\\Passwords\\Passwords\\obj\\",
+      "outputPath": "C:\\Users\\Pericles\\Documents\\GitHub\\PasswordStorage\\Passwords\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Pericles\\AppData\\Roaming\\NuGet\\NuGet.Config",
