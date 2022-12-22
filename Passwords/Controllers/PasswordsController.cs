@@ -43,16 +43,28 @@ namespace Passwords.Controllers
         [HttpPost]
         public IActionResult Criar(PasswordModel cadastro)
         {
-            _cadastroRepositorio.Adicionar(cadastro);
-            return RedirectToAction("Index");
-          
+
+            if (ModelState.IsValid)
+            {
+                _cadastroRepositorio.Adicionar(cadastro);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(cadastro);
+            }
+
         }
 
         [HttpPost]
         public IActionResult Alterar(PasswordModel cadastro)
         {
-            _cadastroRepositorio.Atualizar(cadastro);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _cadastroRepositorio.Atualizar(cadastro);
+                return RedirectToAction("Index");
+            }
+            return View("Editar", cadastro);
 
         }
     }
