@@ -13,8 +13,8 @@ A finalidade deste projeto é desenvolver meus conhecimentos em C# criando um CR
 <h2> Funcionalidades: </h2>
 
  [✅] CRUD <br>
+ [✅] Serch tool <br>
  [❌] Login screen <br>
- [❌] Serch tool <br>
  [❌] Dark theme  
 
 <!-- Tecnologias -->
