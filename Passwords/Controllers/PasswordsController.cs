@@ -30,8 +30,26 @@ namespace Passwords.Controllers
 
         public IActionResult Apagar(int id)
         {
-            _cadastroRepositorio.Apagar(id);
-            return RedirectToAction("index");
+
+            try
+            {
+                bool apagado = _cadastroRepositorio.Apagar(id);
+                if (apagado) {     
+                TempData["MensagemSucesso"] = "Cadastro apagado com sucesso!";
+                }
+                else 
+                {
+                    TempData["MensagemErro"] = "Eita! Não foi possivel apagar o cadastro!}";
+             
+                }
+                return RedirectToAction("index");
+            }
+            catch (System.Exception erro)
+            {
+
+                TempData["MensagemErro"] = $"Eita! Não foi possivel apagar o cadastro! Erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
 
         }
         public IActionResult ApagarConfirmacao(int id)
@@ -44,14 +62,23 @@ namespace Passwords.Controllers
         public IActionResult Criar(PasswordModel cadastro)
         {
 
-            if (ModelState.IsValid)
+            try
             {
-                _cadastroRepositorio.Adicionar(cadastro);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    _cadastroRepositorio.Adicionar(cadastro);
+                    TempData["MensagemSucesso"] = "Cadastro efetuado com sucesso!";
+                    return RedirectToAction("Index");
+                }
+                
+                    return View(cadastro);
+                
             }
-            else
+            catch (System.Exception erro)
             {
-                return View(cadastro);
+
+                TempData["MensagemErro"] = $"Eita! Não foi possivel cadastrar! Erro: {erro.Message}";
+                return RedirectToAction("Index");
             }
 
         }
@@ -59,13 +86,23 @@ namespace Passwords.Controllers
         [HttpPost]
         public IActionResult Alterar(PasswordModel cadastro)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _cadastroRepositorio.Atualizar(cadastro);
-                return RedirectToAction("Index");
-            }
-            return View("Editar", cadastro);
+                if (ModelState.IsValid)
+                {
+                    _cadastroRepositorio.Atualizar(cadastro);
+                    TempData["MensagemSucesso"] = "Cadastro alterado com sucesso!";
+                    return RedirectToAction("Index");
+                }
+                return View("Editar", cadastro);
 
+            }
+            catch (System.Exception erro)
+            {
+                TempData["MensagemErro"] = $"Eita! Não foi possivel alterar o cadastro! Erro: {erro.Message}";
+                return RedirectToAction("Index");
+
+            }
         }
     }
 }
