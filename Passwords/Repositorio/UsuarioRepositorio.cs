@@ -9,6 +9,12 @@ namespace Passwords.Repositorio
     public class UsuarioRepositorio : IUsuarioRepositorio
 
     {
+
+        public UsuarioModel BuscarPorLogin(string login)
+        {
+            return _context.Usuarios.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
+        }
+
         private readonly BancoContext _context;
         public UsuarioRepositorio(BancoContext bancoContext)
         {
@@ -62,5 +68,7 @@ namespace Passwords.Repositorio
             return true;
 
         }
+
+      
     }
 }

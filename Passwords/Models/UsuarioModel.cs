@@ -21,5 +21,11 @@ namespace Passwords.Models
         public DateTime DataCadastro { get; set;} 
         public DateTime? DataDeAtualizacao { get; set;}
 
+        public bool SenhaValida(string senha)
+        {
+            return Password == senha;
+        }
+
+
     }
 }
