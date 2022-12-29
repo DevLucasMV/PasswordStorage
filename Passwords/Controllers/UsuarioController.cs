@@ -44,6 +44,38 @@ namespace Passwords.Controllers
                 TempData["MensagemErro"] = $"Eita! Não foi possivel cadastrar! Erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
+                    
+        }
+        public IActionResult ApagarConfirmacao(int id)
+
+        {
+            UsuarioModel usuario = _usuarioRepositorio.ListarPorId(id);
+            return View(usuario);
+        }
+
+        public IActionResult Apagar(int id)
+        {
+
+            try
+            {
+                bool apagado = _usuarioRepositorio.Apagar(id);
+                if (apagado)
+                {
+                    TempData["MensagemSucesso"] = "Usuario apagado com sucesso!";
+                }
+                else
+                {
+                    TempData["MensagemErro"] = "Eita! Não foi possivel apagar o usuario!}";
+
+                }
+                return RedirectToAction("index");
+            }
+            catch (System.Exception erro)
+            {
+
+                TempData["MensagemErro"] = $"Eita! Não foi possivel apagar o usuario! Erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
 
         }
 

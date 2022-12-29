@@ -34,7 +34,8 @@ namespace Passwords.Repositorio
         {
             PasswordModel cadastroDB = ListarPorId(cadastro.Id);
 
-            if (cadastroDB == null) throw new SystemException("Eita! Houve um erro na atualização do cadastro! :C");
+            if (cadastroDB == null)
+                throw new SystemException("Eita! Houve um erro na atualização do cadastro! :C");
 
             cadastroDB.Nome = cadastro.Nome;
             cadastroDB.Senha = cadastro.Senha;
@@ -50,12 +51,14 @@ namespace Passwords.Repositorio
         {
             PasswordModel cadastroDB = ListarPorId(id);
 
-            if (cadastroDB == null) throw new SystemException("Eita! Houve um erro na remoção do cadastro! :C");
+            if (cadastroDB == null)
+                throw new SystemException("Eita! Houve um erro na remoção do cadastro! :C");
 
             _context.Cadastros.Remove(cadastroDB);
             _context.SaveChanges();
 
             return true;
+
 
         }
     }

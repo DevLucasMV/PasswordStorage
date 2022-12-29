@@ -37,7 +37,7 @@ namespace Passwords.Repositorio
             UsuarioModel usuarioDB = ListarPorId(usuario.Id);
 
             if (usuarioDB == null) throw new SystemException("Eita! Houve um erro na atualização do usuário! :C");
-
+                      
             usuarioDB.Nome = usuario.Nome;
             usuarioDB.Email = usuario.Email;
             usuarioDB.Login = usuario.Login;
@@ -47,10 +47,7 @@ namespace Passwords.Repositorio
             _context.Usuarios.Update(usuarioDB);
             _context.SaveChanges();
 
-            return usuarioDB;
-           
-
-
+            return usuarioDB;         
         }
 
         public bool Apagar(int id)
