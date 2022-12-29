@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Passwords.Models
 {
-    public class UsuarioModel
+    public class UsuarioSemSenhaModel
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "Favor informar o nome do usuario")]
@@ -15,11 +15,6 @@ namespace Passwords.Models
         [EmailAddress(ErrorMessage = "O dado informado não é um E-mail valido! Favor informar E-mail valido!")]
         public string Email { get; set;}
         [Required(ErrorMessage = "Favor selecionar o perfil do usuario")]
-        public PerfilEnum? Perfil { get; set;}
-        [Required(ErrorMessage = "Favor informar o senha do usuario")]
-        public string Password { get; set;} 
-        public DateTime DataCadastro { get; set;} 
-        public DateTime? DataDeAtualizacao { get; set;}
-
+        public PerfilEnum? Perfil { get; set;}     
     }
 }

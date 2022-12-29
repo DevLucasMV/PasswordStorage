@@ -1,16 +1,18 @@
 ﻿@using Passwords.Enum;
 @model UsuarioModel
 @{
-    ViewData["Title"] = "Cadastrar usuario";
+    ViewData["Title"] = "Editar usuario";
 }
 
 <div class="text-center">
 
-    <h1 class="display-4"> Cadastrar Usuario</h1>
+    <h1 class="display-4"> Editar usuário</h1>
 
 </div>
 
-<form asp-controller="Usuario" asp-action="Criar" method="post">
+<form asp-controller="Usuario" asp-action="Editar" method="post">
+
+    <input type="hidden" asp-for="Id" />
 
   <div class="form-group">
     <label for="nome">Nome</label>
@@ -38,16 +40,8 @@
             <option value="@PerfilEnum.Padrao">Padrao</option>
         </select>
         @Html.ValidationMessageFor(x => x.Perfil)
-
-    <div class="form-group">
-            <label for="senha" class="form-label">Password</label>
-            <input type="password" asp-for="Password" class="form-control" placeholder="Digite a senha usuario">
-            @Html.ValidationMessageFor(x => x.Password)
-        </div>
-
-
     </div>
 
-    <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+    <button type="submit" class="btn btn-primary btn-block">Editar</button>
     <a class="btn btn-secondary btn-block" asp-controller="Usuario" asp-action="Index" role="button">Voltar</a>
 </form>
