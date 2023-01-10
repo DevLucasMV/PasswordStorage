@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Passwords.Helper;
 using Passwords.Models;
 using Passwords.Repositorio;
 using System;
@@ -9,14 +10,26 @@ namespace Passwords.Controllers
     {
 
         private readonly IUsuarioRepositorio _usuarioRepositorio;
+        private readonly ISessao _sessao;
 
-        public LoginController (IUsuarioRepositorio usuarioRepositorio)
+        public LoginController (IUsuarioRepositorio usuarioRepositorio,
+                                ISessao sessao)
         {
             _usuarioRepositorio= usuarioRepositorio;
+            _sessao = sessao;
         }
         public IActionResult Index()
         {
+            if (_sessao.BuscarSessaoDoUsuario() != null) return RedirectToAction("Index", "Home");
+
             return View();
+        }
+
+        public IActionResult Sair()
+        {
+            _sessao.RemoverSessaoDoUsuario();
+
+            return RedirectToAction("Index", "Login");
         }
 
         [HttpPost]
@@ -31,8 +44,10 @@ namespace Passwords.Controllers
                 
                     if (usuario != null)
                     {
-                        if(usuario.SenhaValida(loginModel.Senha)) { 
-                        return RedirectToAction("Index", "Home");
+                        if(usuario.SenhaValida(loginModel.Senha))
+                        {
+                            _sessao.CriarSessaoDoUsuario(usuario);
+                            return RedirectToAction("Index", "Home");
                         }
 
                         TempData["MensagemErro"] = "Senha invalida.";
