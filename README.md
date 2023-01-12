@@ -14,8 +14,7 @@ A finalidade deste projeto é desenvolver meus conhecimentos em C# criando um CR
 
  [✅] CRUD <br>
  [✅] Search tool <br>
- [❕] Login screen <br>
- [❌] Dark theme  
+ [✅] Login screen <br>
 
 <!-- Tecnologias -->
 <h2> Tecnologias: <h2>
