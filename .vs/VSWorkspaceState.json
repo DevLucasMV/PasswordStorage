@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Passwords"
+    "\\Passwords",
+    "\\Passwords\\Views",
+    "\\Passwords\\Views\\Shared"
   ],
-  "SelectedNode": "\\Passwords.sln",
+  "SelectedNode": "\\Passwords\\Views\\Shared\\_Layout.cshtml",
   "PreviewInSolutionExplorer": false
 }
