@@ -1,69 +1,50 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Passwords.Helper;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Passwords.Models;
-using Passwords.Repositorio;
-using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Passwords.Controllers
 {
     public class LoginController : Controller
     {
-
-        private readonly IUsuarioRepositorio _usuarioRepositorio;
-        private readonly ISessao _sessao;
-
-        public LoginController (IUsuarioRepositorio usuarioRepositorio,
-                                ISessao sessao)
+        public IActionResult Login()
         {
-            _usuarioRepositorio= usuarioRepositorio;
-            _sessao = sessao;
-        }
-        public IActionResult Index()
-        {
-            if (_sessao.BuscarSessaoDoUsuario() != null) return RedirectToAction("Index", "Home");
-
             return View();
         }
 
-        public IActionResult Sair()
+        public List<UserModel> PutValue()
         {
-            _sessao.RemoverSessaoDoUsuario();
+            var users = new List<UserModel>
+            {
+                new UserModel{id=1, username="admin",password="admin"},
+                 new UserModel{id=1, username="admin1",password="admin1"},
+            };
 
-            return RedirectToAction("Index", "Login");
+            return users;
         }
 
         [HttpPost]
-        public IActionResult Entrar(LoginModel loginModel)
+        public IActionResult Verify(UserModel usr) 
+        
         {
-            try
+            var u = PutValue();
+            var ue = u.Where(u => u.username.Equals(usr.username));
+            var up=ue.Where(p => p.password.Equals(usr.password));
+
+            if(up.Count()==1)
             {
-                if (ModelState.IsValid)
-                {
-                    UsuarioModel usuario = _usuarioRepositorio.BuscarPorLogin(loginModel.Login);
-
-                
-                    if (usuario != null)
-                    {
-                        if(usuario.SenhaValida(loginModel.Senha))
-                        {
-                            _sessao.CriarSessaoDoUsuario(usuario);
-                            return RedirectToAction("Index", "Home");
-                        }
-
-                        TempData["MensagemErro"] = "Senha invalida.";
-                    }
-
-                    TempData["MensagemErro"] = "Senha ou Login invalidos.";
-                }
-
-                return View("Index");
-
+                ViewBag.message = "Logado com sucesso!!";
+                return RedirectToAction("Index", "Home");
             }
-            catch (Exception erro)
+
+            else
             {
-                TempData["MensagemErro"] = $"Eita! Não foi possivel logar! {erro.Message}";
-                return RedirectToAction("Index");
+
+                ViewBag.message = "Opa! Algo tem algo errado!";
+                return View("Login");
             }
         }
     }
+        
 }

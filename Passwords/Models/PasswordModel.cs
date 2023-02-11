@@ -11,7 +11,6 @@ namespace Passwords.Models
         public string Nome { get; set; }
         [Required(ErrorMessage = "Favor informar o E-mail!")]
         [EmailAddress(ErrorMessage = "O dado informado não é um E-mail valido! Favor informar E-mail valido!")]
-
         public string Email { get; set; }
         [Required(ErrorMessage = "Informe a senha cadastrada!")]
         public string Senha { get; set; }
