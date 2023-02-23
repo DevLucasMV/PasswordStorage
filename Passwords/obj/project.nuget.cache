@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Y1mIe6Q8br4XnbDo7MGYobw+UqIpMv+HiuotwZrhVviHDqutLy1MnPFexLFaJVfDnjaDf+I/2xkfrHYC21cVcA==",
+  "dgSpecHash": "hvyedHeiEdPjIbj/G7q3/qmHHu5dsEncvlyj5a74TXW9n8NDWqrLhF0TYJC/ZKUyRPfkjLjQBjWN5XMSm4UsEg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Pericles\\Downloads\\PasswordStorage-bbb6bb400fbfa499de5d32820107248f4b3e00e2\\Passwords\\Passwords.csproj",
+  "projectFilePath": "C:\\Users\\Pericles\\Documents\\GitHub\\PasswordStorage\\Passwords\\Passwords.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pericles\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Pericles\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\5.0.17\\microsoft.aspnetcore.mvc.razor.extensions.5.0.17.nupkg.sha512",
