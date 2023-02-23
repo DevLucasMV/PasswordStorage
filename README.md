@@ -1,7 +1,7 @@
 <!-- Titulo -->
 <h1 align="center">Password Storage </h1>
 <p align="center">Feito para armazenamento de logins via DataBase(SQL)</p> 
-<h2 align="center">  <img src="https://img.shields.io/badge/Project%20Status-Stable-blueviolet"></h2>
+<h2 align="center">  <img src="https://img.shields.io/badge/Project%20Status-Working-Green"></h2>
 
 
 <!-- Sobre -->
@@ -9,13 +9,22 @@
 
 A finalidade deste projeto é desenvolver meus conhecimentos em C# criando um CRUD com o MVC e adicionando features.
 
-<!-- Features -->
-<h2> Funcionalidades: </h2>
+## Preparação
 
- [✅] CRUD <br>
- [✅] Serch tool <br>
- [❌] Login screen <br>
- [❌] Dark theme  
+1º) Restaure o banco de dados, há um arquivo na pasta  'Data - arquivo .bak' utilizando o SQL Server MS.<br/>
+2º) Altere a Connection string no `appsetting.json`, utilizando os dados do SQL Server, desta forma:
+```json
+"ConnectionStrings": {
+    "DataBase": "Server=<Nome_do_servidor>;Database=DB_SistemaCadastros;User Id=<Logon>;Password=<Senha>"
+  }
+  
+Exemplo:
+
+"ConnectionStrings": {
+    "DataBase": "Server=L01110011;Database=DB_SistemaCadastros;User Id=sa;Password=123"
+  },
+```
+3º) Após clonar o projeto na máquina local, abra o projeto com o Visual Studio e execute.
 
 <!-- Tecnologias -->
 <h2> Tecnologias: <h2>
